@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title>centos7 virtualbox 安装后的静态IP设置</title>
+      <link href="/2020/06/23/static-ip-setting/"/>
+      <url>/2020/06/23/static-ip-setting/</url>
+      
+        <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>virtualbox 安装虚拟机centos7后，设置静态IP过程</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>安装centos</li></ol><p>略</p><ol start="2"><li>关掉虚拟机 设置虚拟机</li></ol><p>在virtualbox中设置两个网卡，第一个网卡设置net， 第二个网卡设置桥接</p><ol start="3"><li>开启虚拟机</li></ol><p>进入 /etc/sysconfig/network-scripts/</p><pre><code>cp ifcfg-enp0s3 ifcfg-enp0s8vi ifcfg-enp0s8</code></pre><p>生成新uuid</p><pre><code>uuidgen</code></pre><p>生成的新uuid 替换掉ifcfg-enp0s8 里边的uuid</p><p>新的配置文件如下</p><pre><code>TYPE=&quot;Ethernet&quot;PROXY_METHOD=&quot;none&quot;BROWSER_ONLY=&quot;no&quot;#BOOTPROTO=&quot;dhcp&quot;DEFROUTE=&quot;yes&quot;IPV4_FAILURE_FATAL=&quot;no&quot;IPV6INIT=&quot;yes&quot;IPV6_AUTOCONF=&quot;yes&quot;IPV6_DEFROUTE=&quot;yes&quot;IPV6_FAILURE_FATAL=&quot;no&quot;IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;NAME=&quot;enp0s8&quot;UUID=&quot;61e1757f-8d77-4c56-a9d4-8792deac1bdb&quot;DEVICE=&quot;enp0s8&quot;#ONBOOT=&quot;yes&quot;BOOTPROTO=staticONBOOT=yesIPADDR=192.168.1.190</code></pre><p>结束</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> it </category>
+          
+          <category> devops </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> centos </tag>
+            
+            <tag> 运维 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>easycode介绍及使用</title>
       <link href="/2020/05/11/easycode/"/>
       <url>/2020/05/11/easycode/</url>
