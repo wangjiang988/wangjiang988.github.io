@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title>微服务图片存储问题解决</title>
+      <link href="/2020/06/23/microservice-pic-save/"/>
+      <url>/2020/06/23/microservice-pic-save/</url>
+      
+        <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><blockquote><p>微服务的图片保存问题，如果不用fastdfs这种方案，那么需要本地存储</p></blockquote><p>在docker swarm 部署方案中</p><p>有文件上传的那个微服务做路径映射，且该微服务的节点需要放到同一台机器上</p><p>通过docker node 给节点打标签解决</p><blockquote><p>如下</p></blockquote><pre><code>1. 添加labeldocker node update --label-add [标签] [节点名]docker node update --label-rm [标签] [节点名]docker node inspect [节点名]2. 编排脚本 docker-compose.yml中（略...）    deploy:    placement:        constraints: [node.labels.标签==值]（略...）</code></pre><p>然后最终的微服务配置文件如下</p><pre><code>version: &quot;3.2&quot;services:....# 改服务有文件上传platform:    image: registry.cn-hangzhou.aliyuncs.com/w-cloud/platform-microservice:docker-wj-20200622-v1    networks:    - cloud    environment:    - mysqlIp=192.168.1.115 # 参数可以被application.yml 中使用 使用方法为 ${mysqlIp}    - mysqlPort=3306 # 参数可以被application.yml 中使用 使用方法为 ${mysqlPort}    volumes:    - ./uploads/:/uploads/    deploy:    mode: replicated    replicas: 2    placement:        constraints: [node.labels.func==platform] # 指定服务运行位置    ....networks:cloud:</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> it </category>
+          
+          <category> work </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 微服务 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>centos7 virtualbox 安装后的静态IP设置</title>
       <link href="/2020/06/23/static-ip-setting/"/>
       <url>/2020/06/23/static-ip-setting/</url>
