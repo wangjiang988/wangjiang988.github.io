@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wangjiang988.github.io/"/>
-  <updated>2020-06-23T05:46:48.799Z</updated>
+  <updated>2020-08-05T02:13:18.661Z</updated>
   <id>http://wangjiang988.github.io/</id>
   
   <author>
@@ -17,23 +17,80 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JAVA逃逸分析、栈上分配、标量替换、同步消除</title>
+    <link href="http://wangjiang988.github.io/2020/07/28/escape-analysis/"/>
+    <id>http://wangjiang988.github.io/2020/07/28/escape-analysis/</id>
+    <published>2020-07-28T09:50:15.000Z</published>
+    <updated>2020-08-05T02:13:18.661Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>逃逸分析相关jvm优化</p><p>逃逸分析分基本行为就是分析对象动态作用域：当一个对象被定义后，它可能被外部方法引用，例如作为调用参数被传递到其他方法中，称为方法逃逸。甚至还有可能被外部线程访问到，譬如赋值给类变量或者可以在其他线程中访问的实例变量，称为线程逃逸。<br>如果能证明一个对象不会逃逸到线程或方法以外，也就是别的线程或方法无法通过任何的形式访问到这个对象，则可能为这个变量进行一些高效的优化。<br><a id="more"></a></p><h3 id="非逃逸对象可以做以下优化"><a href="#非逃逸对象可以做以下优化" class="headerlink" title="非逃逸对象可以做以下优化"></a>非逃逸对象可以做以下优化</h3><p>栈上分配</p><p>同步消除</p><p>标量替换</p><h3 id="栈上分配"><a href="#栈上分配" class="headerlink" title="栈上分配"></a>栈上分配</h3><p>通过-XX:-DoEscapeAnalysis关闭逃逸分析</p><p>如题：</p><p>如果确定一个对象不会逃逸出方法之外，那让这个对象直接在栈上分配将是一个不错的选择，对象所占用的内存空间就会随着栈帧的出栈而被释放。</p><h3 id="同步消除"><a href="#同步消除" class="headerlink" title="同步消除"></a>同步消除</h3><p>如果对象没有出现线程逃逸，那该对象的读写就不会存在资源的竞争，不存在资源的竞争，则可以消除对该对象的同步锁。</p><p>通过-XX:+EliminateLocks可以开启同步消除,进行测试执行的效率</p><h3 id="标量替换"><a href="#标量替换" class="headerlink" title="标量替换"></a>标量替换</h3><blockquote><p>概念<br>1.标量和聚合量<br>标量即不可被进一步分解的量，而JAVA的基本数据类型就是标量（如：int，long等基本数据类型以及reference类型等），标量的对立就是可以被进一步分解的量，而这种量称之为聚合量。而在JAVA中对象就是可以被进一步分解的聚合量。</p></blockquote><p>2.替换过程<br>通过逃逸分析确定该对象不会被外部访问，并且对象可以被进一步分解时，JVM不会创建该对象，而会将该对象成员变量分解若干个被这个方法使用的成员变量所代替。这些代替的成员变量在栈帧或寄存器上分配空间。</p><p>通过<br>-XX:+EliminateAllocations可以开启标量替换<br>-XX:+PrintEliminateAllocations查看标量替换情况（Server VM 非Product版本支持）</p><h2 id="参考网址"><a href="#参考网址" class="headerlink" title="参考网址"></a>参考网址</h2><p><a href="https://www.jianshu.com/p/580f17760f6e">https://www.jianshu.com/p/580f17760f6e</a></p><p><a href="https://www.jianshu.com/p/6dce54a204d5">https://www.jianshu.com/p/6dce54a204d5</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;逃逸分析相关jvm优化&lt;/p&gt;
+&lt;p&gt;逃逸分析分基本行为就是分析对象动态作用域：当一个对象被定义后，它可能被外部方法引用，例如作为调用参数被传递到其他方法中，称为方法逃逸。甚至还有可能被外部线程访问到，譬如赋值给类变量或者可以在其他线程中访问的实例变量，称为线程逃逸。&lt;br&gt;如果能证明一个对象不会逃逸到线程或方法以外，也就是别的线程或方法无法通过任何的形式访问到这个对象，则可能为这个变量进行一些高效的优化。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://wangjiang988.github.io/categories/java/"/>
+    
+      <category term="jvm" scheme="http://wangjiang988.github.io/categories/jvm/"/>
+    
+    
+      <category term="java" scheme="http://wangjiang988.github.io/tags/java/"/>
+    
+      <category term="jmm" scheme="http://wangjiang988.github.io/tags/jmm/"/>
+    
+      <category term="escape-analysis" scheme="http://wangjiang988.github.io/tags/escape-analysis/"/>
+    
+      <category term="高并发" scheme="http://wangjiang988.github.io/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java-volatile</title>
+    <link href="http://wangjiang988.github.io/2020/07/27/java-volatile/"/>
+    <id>http://wangjiang988.github.io/2020/07/27/java-volatile/</id>
+    <published>2020-07-27T14:05:00.000Z</published>
+    <updated>2020-08-05T02:16:45.262Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>volatile 关键字介绍</p> <a id="more"></a><h3 id="并发编程的三大特性"><a href="#并发编程的三大特性" class="headerlink" title="并发编程的三大特性"></a>并发编程的三大特性</h3><ol><li>原子性</li><li>可见性</li><li>有序性<ul><li>指令重排概念</li></ul></li></ol><h3 id="JMM-java内存模型-如何保证三大特性"><a href="#JMM-java内存模型-如何保证三大特性" class="headerlink" title="JMM (java内存模型) 如何保证三大特性"></a>JMM (java内存模型) 如何保证三大特性</h3><ol><li><p>保证原子性</p><ul><li>JMM 只保证 基本读取 赋值 的原子性操作</li></ul></li><li><p>可见性</p><ol><li>volatile</li><li>synchronized</li><li>JUC的lock</li></ol></li><li><p>有序性</p><ol><li>volatile</li><li>synchronized</li><li>JUC的lock</li></ol><ul><li>happen-before原则</li></ul></li></ol><h3 id="volatile深入"><a href="#volatile深入" class="headerlink" title="volatile深入"></a>volatile深入</h3><p>volatile 保证可见性 和禁止指令重排</p><p>不保证原子性的原因分析</p><ul><li>cpu时间片调度， 工作内存写入，主内存写入</li></ul><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ol><li>并发开关</li><li>状态标记利用顺序性特点（？）</li><li>单例设计模式额double-check</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;volatile 关键字介绍&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://wangjiang988.github.io/categories/java/"/>
+    
+      <category term="jvm" scheme="http://wangjiang988.github.io/categories/jvm/"/>
+    
+    
+      <category term="java" scheme="http://wangjiang988.github.io/tags/java/"/>
+    
+      <category term="jmm" scheme="http://wangjiang988.github.io/tags/jmm/"/>
+    
+      <category term="高并发" scheme="http://wangjiang988.github.io/tags/%E9%AB%98%E5%B9%B6%E5%8F%91/"/>
+    
+      <category term="volatile" scheme="http://wangjiang988.github.io/tags/volatile/"/>
+    
+  </entry>
+  
+  <entry>
     <title>微服务图片存储问题解决</title>
     <link href="http://wangjiang988.github.io/2020/06/23/microservice-pic-save/"/>
     <id>http://wangjiang988.github.io/2020/06/23/microservice-pic-save/</id>
     <published>2020-06-23T05:39:34.000Z</published>
-    <updated>2020-06-23T05:46:48.799Z</updated>
+    <updated>2020-08-05T02:17:22.163Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><blockquote><p>微服务的图片保存问题，如果不用fastdfs这种方案，那么需要本地存储</p></blockquote><p>在docker swarm 部署方案中</p><p>有文件上传的那个微服务做路径映射，且该微服务的节点需要放到同一台机器上</p><p>通过docker node 给节点打标签解决</p><blockquote><p>如下</p></blockquote><pre><code>1. 添加labeldocker node update --label-add [标签] [节点名]docker node update --label-rm [标签] [节点名]docker node inspect [节点名]2. 编排脚本 docker-compose.yml中（略...）    deploy:    placement:        constraints: [node.labels.标签==值]（略...）</code></pre><p>然后最终的微服务配置文件如下</p><pre><code>version: &quot;3.2&quot;services:....# 改服务有文件上传platform:    image: registry.cn-hangzhou.aliyuncs.com/w-cloud/platform-microservice:docker-wj-20200622-v1    networks:    - cloud    environment:    - mysqlIp=192.168.1.115 # 参数可以被application.yml 中使用 使用方法为 ${mysqlIp}    - mysqlPort=3306 # 参数可以被application.yml 中使用 使用方法为 ${mysqlPort}    volumes:    - ./uploads/:/uploads/    deploy:    mode: replicated    replicas: 2    placement:        constraints: [node.labels.func==platform] # 指定服务运行位置    ....networks:cloud:</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><blockquote><p>微服务的图片保存问题，如果不用fastdfs这种方案，那么需要本地存储</p></blockquote><a id="more"></a><p>在docker swarm 部署方案中</p><p>有文件上传的那个微服务做路径映射，且该微服务的节点需要放到同一台机器上（不然会造成上传图片存放路径不一致的问题， 会分散到不通的node主机上）</p><p>通过docker node 给节点打标签解决</p><blockquote><p>如下</p></blockquote><pre><code>1. 添加labeldocker node update --label-add [标签] [节点名]docker node update --label-rm [标签] [节点名]docker node inspect [节点名]2. 编排脚本 docker-compose.yml中（略...）    deploy:    placement:        constraints: [node.labels.标签==值]（略...）</code></pre><p>然后最终的微服务配置文件如下</p><pre><code>version: &quot;3.2&quot;services:....# 改服务有文件上传platform:    image: registry.cn-hangzhou.aliyuncs.com/w-cloud/platform-microservice:docker-wj-20200622-v1    networks:    - cloud    environment:    - mysqlIp=192.168.1.115 # 参数可以被application.yml 中使用 使用方法为 $&#123;mysqlIp&#125;    - mysqlPort=3306 # 参数可以被application.yml 中使用 使用方法为 $&#123;mysqlPort&#125;    volumes:    - ./uploads/:/uploads/    deploy:    mode: replicated    replicas: 2    placement:        constraints: [node.labels.func==platform] # 指定服务运行位置    ....networks:cloud:</code></pre>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;blockquote&gt;
+      &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;微服务的图片保存问题，如果不用fastdfs这种方案，那么需要本地存储&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;
-      
     
     </summary>
     
@@ -53,17 +110,13 @@
     <link href="http://wangjiang988.github.io/2020/06/23/static-ip-setting/"/>
     <id>http://wangjiang988.github.io/2020/06/23/static-ip-setting/</id>
     <published>2020-06-23T05:10:17.000Z</published>
-    <updated>2020-06-23T05:19:07.780Z</updated>
+    <updated>2020-08-05T02:17:37.030Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>virtualbox 安装虚拟机centos7后，设置静态IP过程</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>安装centos</li></ol><p>略</p><ol start="2"><li>关掉虚拟机 设置虚拟机</li></ol><p>在virtualbox中设置两个网卡，第一个网卡设置net， 第二个网卡设置桥接</p><ol start="3"><li>开启虚拟机</li></ol><p>进入 /etc/sysconfig/network-scripts/</p><pre><code>cp ifcfg-enp0s3 ifcfg-enp0s8vi ifcfg-enp0s8</code></pre><p>生成新uuid</p><pre><code>uuidgen</code></pre><p>生成的新uuid 替换掉ifcfg-enp0s8 里边的uuid</p><p>新的配置文件如下</p><pre><code>TYPE=&quot;Ethernet&quot;PROXY_METHOD=&quot;none&quot;BROWSER_ONLY=&quot;no&quot;#BOOTPROTO=&quot;dhcp&quot;DEFROUTE=&quot;yes&quot;IPV4_FAILURE_FATAL=&quot;no&quot;IPV6INIT=&quot;yes&quot;IPV6_AUTOCONF=&quot;yes&quot;IPV6_DEFROUTE=&quot;yes&quot;IPV6_FAILURE_FATAL=&quot;no&quot;IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;NAME=&quot;enp0s8&quot;UUID=&quot;61e1757f-8d77-4c56-a9d4-8792deac1bdb&quot;DEVICE=&quot;enp0s8&quot;#ONBOOT=&quot;yes&quot;BOOTPROTO=staticONBOOT=yesIPADDR=192.168.1.190</code></pre><p>结束</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>virtualbox 安装虚拟机centos7后，设置静态IP过程<br><a id="more"></a></p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>安装centos</li></ol><p>略</p><ol start="2"><li>关掉虚拟机 设置虚拟机</li></ol><p>在virtualbox中设置两个网卡，第一个网卡设置net， 第二个网卡设置桥接</p><ol start="3"><li>开启虚拟机</li></ol><p>进入 /etc/sysconfig/network-scripts/</p><pre><code>cp ifcfg-enp0s3 ifcfg-enp0s8vi ifcfg-enp0s8</code></pre><p>生成新uuid</p><pre><code>uuidgen</code></pre><p>生成的新uuid 替换掉ifcfg-enp0s8 里边的uuid</p><p>新的配置文件如下</p><pre><code>TYPE=&quot;Ethernet&quot;PROXY_METHOD=&quot;none&quot;BROWSER_ONLY=&quot;no&quot;#BOOTPROTO=&quot;dhcp&quot;DEFROUTE=&quot;yes&quot;IPV4_FAILURE_FATAL=&quot;no&quot;IPV6INIT=&quot;yes&quot;IPV6_AUTOCONF=&quot;yes&quot;IPV6_DEFROUTE=&quot;yes&quot;IPV6_FAILURE_FATAL=&quot;no&quot;IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;NAME=&quot;enp0s8&quot;UUID=&quot;61e1757f-8d77-4c56-a9d4-8792deac1bdb&quot;DEVICE=&quot;enp0s8&quot;#ONBOOT=&quot;yes&quot;BOOTPROTO=staticONBOOT=yesIPADDR=192.168.1.190</code></pre><p>结束</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;virtualbox 安装虚拟机centos7后，设置静态IP过程&lt;/p&gt;
-&lt;h2 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=
-      
+      &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;virtualbox 安装虚拟机centos7后，设置静态IP过程&lt;br&gt;
     
     </summary>
     
@@ -83,17 +136,14 @@
     <link href="http://wangjiang988.github.io/2020/05/11/easycode/"/>
     <id>http://wangjiang988.github.io/2020/05/11/easycode/</id>
     <published>2020-05-11T12:53:33.000Z</published>
-    <updated>2020-05-12T05:43:17.862Z</updated>
+    <updated>2020-08-05T02:17:52.172Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>easycode 是我业余时间开发的一款代码生成工具。</p><p>一开始主要是想看看vue-cli的脚手架写法，后来我发现node非常适合写这种项目的脚手架，且网上教程也很多，于是便萌生了写下一款代替CV大法的工具。</p><h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>npmjs : <a href="https://www.npmjs.com/package/@wangjiang988/easycode" target="_blank" rel="noopener">https://www.npmjs.com/package/@wangjiang988/easycode</a></p><p>github: <a href="https://github.com/wangjiang988/easycode" target="_blank" rel="noopener">https://github.com/wangjiang988/easycode</a></p><h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><h3 id="1-初始化配置文件-easycode-yml"><a href="#1-初始化配置文件-easycode-yml" class="headerlink" title="1. 初始化配置文件 easycode.yml"></a>1. 初始化配置文件 easycode.yml</h3><pre><code>easy config init</code></pre><p><img src="/img/easycode/easy_init_2.png" alt="image"></p><p>执行成功后，在当前目录下回生成</p><pre><code>...easycode.ymltemplates/项目其他文件</code></pre><h3 id="2-重新加载文件"><a href="#2-重新加载文件" class="headerlink" title="2. 重新加载文件"></a>2. 重新加载文件</h3><pre><code>easy config refresh</code></pre><h3 id="3-代码生成"><a href="#3-代码生成" class="headerlink" title="3. 代码生成"></a>3. 代码生成</h3><pre><code>easy make {name} </code></pre><p>这里的name是我们的easycode.yml中的模板名：</p><blockquote><p>单文件模板名</p></blockquote><p><img src="/img/easycode/easycode_yml_name_desc.png" alt="image"></p><blockquote><p>文件组模板名</p></blockquote><p><img src="/img/easycode/easycode_group_name_desc.png" alt="image"></p><h3 id="4-模板制作"><a href="#4-模板制作" class="headerlink" title="4. 模板制作"></a>4. 模板制作</h3><p>以项目里边默认跟的一个模板demo.tpl为例：</p><p><strong><code>demo.tpl 如下：</code></strong> </p><pre><code>/**** ***** 模板定义                         ****** @name demo * @filename demo 即将生成的目标名称 可含有变量 如:&lt;{root.model_name}&gt;demo* @description 测试模板* @ext js * @targetPath  @projectRoot/src* ***** 模板内变量: 变量名称|默认值|变量描述 ****** @variable    func_name|fabulous|方法名称* @variable    desc|默认模板文件|待生成文件描述* ****** 全局常用变量                     ****** projectRoot     当前命令行所在路径，通常是项目路径，也是有配置文件easycode.yaml的路径* now_datetime    当前系统时间 格式为YYYY-mm-dd HH:MM:ss* now_date        当前日期 格式为YYYY-mm-dd* 还有其他配置文件中的根属性和metadata中定义的属性都可以在模板中使用* 全局变量通过加root来定义* 如： root.now_date, root.author root.filename_withno_ext(没有后缀名的文件名)) 等等*//*** @author &lt;{root.author}&gt;* @date_time &lt;{root.now_date}&gt;* @description &lt;{desc}&gt;*/function &lt;{func_name}&gt; () {    let author = &apos;&lt;{root.author}&gt;&apos;    console.log(&apos;作者是:&apos; + author)}&lt;{func_name}&gt;()</code></pre><p><strong> 上面代码共有两块注释 第一块为模板定义注释, 第二块则显然就是代码注释 </strong> </p><p><strong><code>我们讲解第一块代码注释</code></strong></p><blockquote><p>@name  模板名</p></blockquote><p>easy config refresh后，改字段将作为模板名放到easycode.yml模板块那里</p><blockquote><p>@filename 文件名</p></blockquote><p>该注释将会觉得该模板生成时默认的文件名，支持变量定义</p><blockquote><p>@description 模板描述</p></blockquote><p>支持变量定义</p><blockquote><p>@ext 模板对应的文件后缀名 </p></blockquote><p>生成的文件将会是该后缀名的文件</p><blockquote><p>@targetPath 文件将生成的目标路径</p></blockquote><blockquote><p>@varibale 模板内变量定义</p></blockquote><p>定义规则 {变量名称}|{默认值}|{变量描述}</p><p>在生成文件时，将会在命令行交互定义模板内的变量</p><p><code>其他的行 不重要 都可以删</code></p><blockquote><p>模板的变量符号及使用</p></blockquote><pre><code>&lt;{ }&gt;做过web开发的都应该懂的。这个就是个变量占位符，替换变量用的</code></pre><blockquote><p>全局变量</p></blockquote><pre><code>常用的全局变量（全局变量通过加root来定义）root.now_dateroot.authorroot.filename_withno_ext这些都是在eayscode.yaml中定义的属性而当前页面定义的属性，如demo.tpl定义的desc变量 直接使用&lt;{desc}&gt;来使用</code></pre><blockquote><p>模板组</p></blockquote><p><em>模板组的文件，是以文件夹为单位的。里边包含一个group.yml配置文件，内容格式如下</em></p><pre><code>## 模板组名name: simple-curd    ## 模板组描述description: 简单增删盖查-不继承BaseEntity,没有controller ## mysql 连接 用来生成 如java中的实体类, 如自带模板组的simple-curd中的 Entity.tpl中会用到## 查询对应表中的字段来生成实体类mysql:  host: &apos;127.0.0.1&apos;  port: &apos;33060&apos;  user: &apos;root&apos;  password: &apos;123456&apos;  database: &apos;db_name&apos;# 公共变量名称: 默认名称，用来命令行交互，交互生成的字段都是以 root.group.xx 为变量在模板文件中可以使用public_variables:   - type: &apos;input&apos;    name: &apos;table_name&apos;  // 这里就是 root.group.table_name    message: &apos;表名&apos;    default: &apos;prefix_tablename&apos;  - type: &apos;input&apos;    name: &apos;model&apos;      // 这里就是 root.group.model    message: &apos;模型名&apos;    default: &apos;User&apos;  - type: &apos;input&apos;    name: &apos;model_lower&apos;    message: &apos;模型名小写&apos;    default: &apos;user&apos;  - type: &apos;input&apos;    name: &apos;model_desc&apos;    message: &apos;模型名描述&apos;    default: &apos;用户&apos;</code></pre><h2 id="easycode-yml-配置文件讲解"><a href="#easycode-yml-配置文件讲解" class="headerlink" title="easycode.yml 配置文件讲解"></a>easycode.yml 配置文件讲解</h2><p><strong><code>格式如下</code></strong></p><pre><code>name: 柠檬报价description: 一个小而美的报价系统author: wangjiangversion: 1.0.0project_name: lemon-pricemetadata:  basePackagePath: com/wangjianng/cloud  basePackage: com.wangjianng.cloudpathMetadata:  project: lemontplGit:  path: https://github.com/wangjiang988/easytpl_java.git  branch: mastertemplates:  singles:    - name: AdminController      description: 控制接口类      filePath: curd/Controller.tpl    - name: Entity      description: 实体类      filePath: curd/Entity.tpl    - name: Mapper      description: mapper类      filePath: curd/Mapper.tpl    - name: Mapper      description: MapperXml文件      filePath: curd/MapperXml.tpl    - name: Service      description: 服务接口类      filePath: curd/Service.tpl    - name: ServiceImpl      description: 服务实现类      filePath: curd/ServiceImpl.tpl    - name: demo      description: 测试模板      filePath: demo/demo.tpl    - name: class      description: java通用class      filePath: java/class.tpl  groups:    - name: curd      rootPath: curd      description: 增删盖查      children:        - name: AdminController          description: 控制接口类          filePath: curd/Controller.tpl        - name: Entity          description: 实体类          filePath: curd/Entity.tpl        - name: Mapper          description: mapper类          filePath: curd/Mapper.tpl        - name: Mapper          description: MapperXml文件          filePath: curd/MapperXml.tpl        - name: Service          description: 服务接口类          filePath: curd/Service.tpl        - name: ServiceImpl          description: 服务实现类          filePath: curd/ServiceImpl.tpl</code></pre><blockquote><p>其中 tplGit 指向的是你自己制作的模块库</p></blockquote><p>针对不同的项目，你可以使用不同的模板库，在easy config init 或refresh时 会自动把代码库下载到当前路径下的templates文件夹内作为模板使用</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>  待补充</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>easycode 是我业余时间开发的一款代码生成工具。</p><p>一开始主要是想看看vue-cli的脚手架写法，后来我发现node非常适合写这种项目的脚手架，且网上教程也很多，于是便萌生了写下一款代替CV大法的工具。</p><a id="more"></a><h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>npmjs : <a href="https://www.npmjs.com/package/@wangjiang988/easycode">https://www.npmjs.com/package/@wangjiang988/easycode</a></p><p>github: <a href="https://github.com/wangjiang988/easycode">https://github.com/wangjiang988/easycode</a></p><h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><h3 id="1-初始化配置文件-easycode-yml"><a href="#1-初始化配置文件-easycode-yml" class="headerlink" title="1. 初始化配置文件 easycode.yml"></a>1. 初始化配置文件 easycode.yml</h3><pre><code>easy config init</code></pre><p><img src="/img/easycode/easy_init_2.png" alt="image"></p><p>执行成功后，在当前目录下回生成</p><pre><code>...easycode.ymltemplates/项目其他文件</code></pre><h3 id="2-重新加载文件"><a href="#2-重新加载文件" class="headerlink" title="2. 重新加载文件"></a>2. 重新加载文件</h3><pre><code>easy config refresh</code></pre><h3 id="3-代码生成"><a href="#3-代码生成" class="headerlink" title="3. 代码生成"></a>3. 代码生成</h3><pre><code>easy make &#123;name&#125; </code></pre><p>这里的name是我们的easycode.yml中的模板名：</p><blockquote><p>单文件模板名</p></blockquote><p><img src="/img/easycode/easycode_yml_name_desc.png" alt="image"></p><blockquote><p>文件组模板名</p></blockquote><p><img src="/img/easycode/easycode_group_name_desc.png" alt="image"></p><h3 id="4-模板制作"><a href="#4-模板制作" class="headerlink" title="4. 模板制作"></a>4. 模板制作</h3><p>以项目里边默认跟的一个模板demo.tpl为例：</p><p><strong><code>demo.tpl 如下：</code></strong> </p><pre><code>/**** ***** 模板定义                         ****** @name demo * @filename demo 即将生成的目标名称 可含有变量 如:&lt;&#123;root.model_name&#125;&gt;demo* @description 测试模板* @ext js * @targetPath  @projectRoot/src* ***** 模板内变量: 变量名称|默认值|变量描述 ****** @variable    func_name|fabulous|方法名称* @variable    desc|默认模板文件|待生成文件描述* ****** 全局常用变量                     ****** projectRoot     当前命令行所在路径，通常是项目路径，也是有配置文件easycode.yaml的路径* now_datetime    当前系统时间 格式为YYYY-mm-dd HH:MM:ss* now_date        当前日期 格式为YYYY-mm-dd* 还有其他配置文件中的根属性和metadata中定义的属性都可以在模板中使用* 全局变量通过加root来定义* 如： root.now_date, root.author root.filename_withno_ext(没有后缀名的文件名)) 等等*//*** @author &lt;&#123;root.author&#125;&gt;* @date_time &lt;&#123;root.now_date&#125;&gt;* @description &lt;&#123;desc&#125;&gt;*/function &lt;&#123;func_name&#125;&gt; () &#123;    let author = &apos;&lt;&#123;root.author&#125;&gt;&apos;    console.log(&apos;作者是:&apos; + author)&#125;&lt;&#123;func_name&#125;&gt;()</code></pre><p><strong> 上面代码共有两块注释 第一块为模板定义注释, 第二块则显然就是代码注释 </strong> </p><p><strong><code>我们讲解第一块代码注释</code></strong></p><blockquote><p>@name  模板名</p></blockquote><p>easy config refresh后，改字段将作为模板名放到easycode.yml模板块那里</p><blockquote><p>@filename 文件名</p></blockquote><p>该注释将会觉得该模板生成时默认的文件名，支持变量定义</p><blockquote><p>@description 模板描述</p></blockquote><p>支持变量定义</p><blockquote><p>@ext 模板对应的文件后缀名 </p></blockquote><p>生成的文件将会是该后缀名的文件</p><blockquote><p>@targetPath 文件将生成的目标路径</p></blockquote><blockquote><p>@varibale 模板内变量定义</p></blockquote><p>定义规则 {变量名称}|{默认值}|{变量描述}</p><p>在生成文件时，将会在命令行交互定义模板内的变量</p><p><code>其他的行 不重要 都可以删</code></p><blockquote><p>模板的变量符号及使用</p></blockquote><pre><code>&lt;&#123; &#125;&gt;做过web开发的都应该懂的。这个就是个变量占位符，替换变量用的</code></pre><blockquote><p>全局变量</p></blockquote><pre><code>常用的全局变量（全局变量通过加root来定义）root.now_dateroot.authorroot.filename_withno_ext这些都是在eayscode.yaml中定义的属性而当前页面定义的属性，如demo.tpl定义的desc变量 直接使用&lt;&#123;desc&#125;&gt;来使用</code></pre><blockquote><p>模板组</p></blockquote><p><em>模板组的文件，是以文件夹为单位的。里边包含一个group.yml配置文件，内容格式如下</em></p><pre><code>## 模板组名name: simple-curd    ## 模板组描述description: 简单增删盖查-不继承BaseEntity,没有controller ## mysql 连接 用来生成 如java中的实体类, 如自带模板组的simple-curd中的 Entity.tpl中会用到## 查询对应表中的字段来生成实体类mysql:  host: &apos;127.0.0.1&apos;  port: &apos;33060&apos;  user: &apos;root&apos;  password: &apos;123456&apos;  database: &apos;db_name&apos;# 公共变量名称: 默认名称，用来命令行交互，交互生成的字段都是以 root.group.xx 为变量在模板文件中可以使用public_variables:   - type: &apos;input&apos;    name: &apos;table_name&apos;  // 这里就是 root.group.table_name    message: &apos;表名&apos;    default: &apos;prefix_tablename&apos;  - type: &apos;input&apos;    name: &apos;model&apos;      // 这里就是 root.group.model    message: &apos;模型名&apos;    default: &apos;User&apos;  - type: &apos;input&apos;    name: &apos;model_lower&apos;    message: &apos;模型名小写&apos;    default: &apos;user&apos;  - type: &apos;input&apos;    name: &apos;model_desc&apos;    message: &apos;模型名描述&apos;    default: &apos;用户&apos;</code></pre><h2 id="easycode-yml-配置文件讲解"><a href="#easycode-yml-配置文件讲解" class="headerlink" title="easycode.yml 配置文件讲解"></a>easycode.yml 配置文件讲解</h2><p><strong><code>格式如下</code></strong></p><pre><code>name: 柠檬报价description: 一个小而美的报价系统author: wangjiangversion: 1.0.0project_name: lemon-pricemetadata:  basePackagePath: com/wangjianng/cloud  basePackage: com.wangjianng.cloudpathMetadata:  project: lemontplGit:  path: https://github.com/wangjiang988/easytpl_java.git  branch: mastertemplates:  singles:    - name: AdminController      description: 控制接口类      filePath: curd/Controller.tpl    - name: Entity      description: 实体类      filePath: curd/Entity.tpl    - name: Mapper      description: mapper类      filePath: curd/Mapper.tpl    - name: Mapper      description: MapperXml文件      filePath: curd/MapperXml.tpl    - name: Service      description: 服务接口类      filePath: curd/Service.tpl    - name: ServiceImpl      description: 服务实现类      filePath: curd/ServiceImpl.tpl    - name: demo      description: 测试模板      filePath: demo/demo.tpl    - name: class      description: java通用class      filePath: java/class.tpl  groups:    - name: curd      rootPath: curd      description: 增删盖查      children:        - name: AdminController          description: 控制接口类          filePath: curd/Controller.tpl        - name: Entity          description: 实体类          filePath: curd/Entity.tpl        - name: Mapper          description: mapper类          filePath: curd/Mapper.tpl        - name: Mapper          description: MapperXml文件          filePath: curd/MapperXml.tpl        - name: Service          description: 服务接口类          filePath: curd/Service.tpl        - name: ServiceImpl          description: 服务实现类          filePath: curd/ServiceImpl.tpl</code></pre><blockquote><p>其中 tplGit 指向的是你自己制作的模块库</p></blockquote><p>针对不同的项目，你可以使用不同的模板库，在easy config init 或refresh时 会自动把代码库下载到当前路径下的templates文件夹内作为模板使用</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>  待补充</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;easycode 是我业余时间开发的一款代码生成工具。&lt;/p&gt;
-&lt;p&gt;一开始主要是想看看vue-cli的脚手架写法，后来我发现node非常适
-      
+      &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;easycode 是我业余时间开发的一款代码生成工具。&lt;/p&gt;
+&lt;p&gt;一开始主要是想看看vue-cli的脚手架写法，后来我发现node非常适合写这种项目的脚手架，且网上教程也很多，于是便萌生了写下一款代替CV大法的工具。&lt;/p&gt;
     
     </summary>
     
@@ -103,29 +153,6 @@
     
     
       <category term="easycode" scheme="http://wangjiang988.github.io/tags/easycode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://wangjiang988.github.io/2020/05/11/hello-world/"/>
-    <id>http://wangjiang988.github.io/2020/05/11/hello-world/</id>
-    <published>2020-05-11T01:20:32.499Z</published>
-    <updated>2020-05-11T01:42:57.551Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://wangjiang988.github.io/categories/hexo/"/>
-    
     
   </entry>
   
