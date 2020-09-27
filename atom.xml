@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wangjiang988.github.io/"/>
-  <updated>2020-08-05T02:13:18.661Z</updated>
+  <updated>2020-09-27T06:52:40.914Z</updated>
   <id>http://wangjiang988.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>dockerzie学习笔记</title>
+    <link href="http://wangjiang988.github.io/2020/09/27/dockerzie-info/"/>
+    <id>http://wangjiang988.github.io/2020/09/27/dockerzie-info/</id>
+    <published>2020-09-27T05:35:32.000Z</published>
+    <updated>2020-09-27T06:52:40.914Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><hr><p>dockerize 是一个小型的 Golang 应用，是一个实用程序，用于简化在 Docker 容器中运行的应用程序，可以简化以下容器管理的过程。</p><pre><code>1. 跟踪任意的日志文件到 STDOUT 和 STDERR。2. 在启动时使用模板生成配置文件和容器环境变量。3. 在启动主进程之前，等待（探测 ）使用 TCP、HTTP、Unix 的其他服务可用。</code></pre><p>dockerize 的典型用例是，当有一个应用程序具有一个或多个配置文件，并且希望使用环境变量控制某些值时。</p><h2 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h2><hr><p>详情见</p><pre><code>https://gitee.com/leoss/vbox/tree/master/centos7  这篇文章`测试dockerize`部分和代码</code></pre><h2 id="测试dockerize"><a href="#测试dockerize" class="headerlink" title="测试dockerize"></a>测试dockerize</h2><p>参考文档：</p><p><a href="https://segmentfault.com/a/1190000000728440">https://segmentfault.com/a/1190000000728440</a></p><p>测试 dockerize 启动 nginx</p><p>路径 source/docker-learn</p><h3 id="用例1：日志文件内容输出到控制台"><a href="#用例1：日志文件内容输出到控制台" class="headerlink" title="用例1：日志文件内容输出到控制台"></a>用例1：日志文件内容输出到控制台</h3><blockquote><p>docker启动</p></blockquote><pre><code>`docker logs 无输出`docker run -itd -p 80:80 dockerize-test:latest将日志文件输出到控制台docker run -itd -p 80:80 dockerize-test:dev-output</code></pre><p>注：<br> 查看上一行命令是否执行成功</p><pre><code>if [ $? -ne 0 ]; then    echo &quot;build unsuccessful&quot;    exit;fi</code></pre><h3 id="用例2-在启动时使用模板生成配置文件和容器环境变量"><a href="#用例2-在启动时使用模板生成配置文件和容器环境变量" class="headerlink" title="用例2: 在启动时使用模板生成配置文件和容器环境变量"></a>用例2: 在启动时使用模板生成配置文件和容器环境变量</h3><ol><li>修改Dockerfile中最后一行为：</li></ol><pre><code>CMD dockerize -template /app/source/docker-learn/docker/nginx.tpl:/etc/nginx/nginx.conf -stdout /var/log/nginx/access.log -stderr /var/log/nginx/error.log nginx</code></pre><ol start="2"><li><p>nginx.tpl中有模板变量：</p><pre><code># 指定当前启动环境作者# &#123;&#123; .Env.author &#125;&#125;</code></pre></li><li><p>开始构建版本</p><p> dev-tpl</p></li><li><p>创建容器</p><pre><code>带上参数 -e &quot;author=wangjiang&quot;docker run -itd -p 80:80 --name nginx -e &quot;author=wangjiang&quot; dockerize-test:dev-tpl</code></pre></li><li><p>进入到容器中 /etc/nginx/nginx.conf</p></li></ol><p>显示  </p><pre><code># 指定当前启动环境作者# wangjiang</code></pre><h3 id="用例3：等待其他依赖项"><a href="#用例3：等待其他依赖项" class="headerlink" title="用例3：等待其他依赖项"></a>用例3：等待其他依赖项</h3><p>使用 docker compose 等工具依赖其他链接容器中的服务是很常见的，但是通常依赖链接是不够的，虽然容器本身可能已经启动，但其中的服务可能还没有准备好。</p><p>dockerize 能够在启动应用程序之前在指定协议（FILE、TCP、TCP4、TCP6、HTTP、HTTPS 和 Unix）上等待服务。</p><p>[root@localhost ~]# dockerize -wait tcp://db:5432 -wait <a href="http://web:80">http://web:80</a> -wait file:///tmp/generated-file</p><p>可以使用 -timeout 参数（默认值 10 秒）指定等待服务可用的时间。如果超时，并且服务仍然不可用，则进程退出，状态代码为 1。</p><p>[root@localhost ~]# dockerize -wait tcp://db:5432 -wait <a href="http://web:80">http://web:80</a> -timeout 10s</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;dockerize 是一个小型的 Golang 应用，是一个实用程序，用于简化在 Docker 容器中运行的应用程序，可以简化以下
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="http://wangjiang988.github.io/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="http://wangjiang988.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>JAVA逃逸分析、栈上分配、标量替换、同步消除</title>

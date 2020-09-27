@@ -22,21 +22,20 @@
     var CONFIG = {"hostname":"wangjiang988.github.io","root":"/","scheme":"Mist","version":"8.0.0-rc.5","exturl":false,"sidebar":{"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="说明virtualbox 安装虚拟机centos7后，设置静态IP过程">
+  <meta name="description" content="说明 dockerize 是一个小型的 Golang 应用，是一个实用程序，用于简化在 Docker 容器中运行的应用程序，可以简化以下容器管理的过程。 1. 跟踪任意的日志文件到 STDOUT 和 STDERR。 2. 在启动时使用模板生成配置文件和容器环境变量。 3. 在启动主进程之前，等待（探测 ）使用 TCP、HTTP、Unix 的其他服务可用。 dockerize 的典型用例是，当有一个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="centos7 virtualbox 安装后的静态IP设置">
-<meta property="og:url" content="http://wangjiang988.github.io/2020/06/23/static-ip-setting/index.html">
+<meta property="og:title" content="dockerzie学习笔记">
+<meta property="og:url" content="http://wangjiang988.github.io/2020/09/27/dockerzie-info/index.html">
 <meta property="og:site_name" content="言先生">
-<meta property="og:description" content="说明virtualbox 安装虚拟机centos7后，设置静态IP过程">
+<meta property="og:description" content="说明 dockerize 是一个小型的 Golang 应用，是一个实用程序，用于简化在 Docker 容器中运行的应用程序，可以简化以下容器管理的过程。 1. 跟踪任意的日志文件到 STDOUT 和 STDERR。 2. 在启动时使用模板生成配置文件和容器环境变量。 3. 在启动主进程之前，等待（探测 ）使用 TCP、HTTP、Unix 的其他服务可用。 dockerize 的典型用例是，当有一个">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-23T05:10:17.000Z">
-<meta property="article:modified_time" content="2020-08-05T02:17:37.030Z">
+<meta property="article:published_time" content="2020-09-27T05:35:32.000Z">
+<meta property="article:modified_time" content="2020-09-27T06:52:40.914Z">
 <meta property="article:author" content="jiangwang">
-<meta property="article:tag" content="centos">
-<meta property="article:tag" content="运维">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wangjiang988.github.io/2020/06/23/static-ip-setting/">
+<link rel="canonical" href="http://wangjiang988.github.io/2020/09/27/dockerzie-info/">
 
 
 <script class="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>centos7 virtualbox 安装后的静态IP设置 | 言先生</title>
+  <title>dockerzie学习笔记 | 言先生</title>
   
 
 
@@ -221,7 +220,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">用例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95dockerize"><span class="nav-number">3.</span> <span class="nav-text">测试dockerize</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B1%EF%BC%9A%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E8%BE%93%E5%87%BA%E5%88%B0%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="nav-number">3.1.</span> <span class="nav-text">用例1：日志文件内容输出到控制台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B2-%E5%9C%A8%E5%90%AF%E5%8A%A8%E6%97%B6%E4%BD%BF%E7%94%A8%E6%A8%A1%E6%9D%BF%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%92%8C%E5%AE%B9%E5%99%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">用例2: 在启动时使用模板生成配置文件和容器环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B3%EF%BC%9A%E7%AD%89%E5%BE%85%E5%85%B6%E4%BB%96%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="nav-number">3.3.</span> <span class="nav-text">用例3：等待其他依赖项</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -285,7 +284,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wangjiang988.github.io/2020/06/23/static-ip-setting/">
+    <link itemprop="mainEntityOfPage" href="http://wangjiang988.github.io/2020/09/27/dockerzie-info/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -300,7 +299,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          centos7 virtualbox 安装后的静态IP设置
+          dockerzie学习笔记
         </h1>
 
         <div class="post-meta">
@@ -309,27 +308,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-06-23 13:10:17" itemprop="dateCreated datePublished" datetime="2020-06-23T13:10:17+08:00">2020-06-23</time>
+              <time title="创建时间：2020-09-27 13:35:32 / 修改时间：14:52:40" itemprop="dateCreated datePublished" datetime="2020-09-27T13:35:32+08:00">2020-09-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-05 10:17:37" itemprop="dateModified" datetime="2020-08-05T10:17:37+08:00">2020-08-05</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/it/" itemprop="url" rel="index"><span itemprop="name">it</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index"><span itemprop="name">devops</span></a>
+                  <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
                 </span>
             </span>
 
@@ -342,45 +331,61 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>virtualbox 安装虚拟机centos7后，设置静态IP过程<br><a id="more"></a></p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li>安装centos</li>
-</ol>
-<p>略</p>
-<ol start="2">
-<li>关掉虚拟机 设置虚拟机</li>
-</ol>
-<p>在virtualbox中设置两个网卡，第一个网卡设置net， 第二个网卡设置桥接</p>
-<ol start="3">
-<li>开启虚拟机</li>
-</ol>
-<p>进入 /etc/sysconfig/network-scripts/</p>
-<pre><code>cp ifcfg-enp0s3 ifcfg-enp0s8
-vi ifcfg-enp0s8
-</code></pre><p>生成新uuid</p>
-<pre><code>uuidgen
-</code></pre><p>生成的新uuid 替换掉ifcfg-enp0s8 里边的uuid</p>
-<p>新的配置文件如下</p>
-<pre><code>TYPE=&quot;Ethernet&quot;
-PROXY_METHOD=&quot;none&quot;
-BROWSER_ONLY=&quot;no&quot;
-#BOOTPROTO=&quot;dhcp&quot;
-DEFROUTE=&quot;yes&quot;
-IPV4_FAILURE_FATAL=&quot;no&quot;
-IPV6INIT=&quot;yes&quot;
-IPV6_AUTOCONF=&quot;yes&quot;
-IPV6_DEFROUTE=&quot;yes&quot;
-IPV6_FAILURE_FATAL=&quot;no&quot;
-IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;
-NAME=&quot;enp0s8&quot;
-UUID=&quot;61e1757f-8d77-4c56-a9d4-8792deac1bdb&quot;
-DEVICE=&quot;enp0s8&quot;
-#ONBOOT=&quot;yes&quot;
+        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><hr>
+<p>dockerize 是一个小型的 Golang 应用，是一个实用程序，用于简化在 Docker 容器中运行的应用程序，可以简化以下容器管理的过程。</p>
+<pre><code>1. 跟踪任意的日志文件到 STDOUT 和 STDERR。
+2. 在启动时使用模板生成配置文件和容器环境变量。
+3. 在启动主进程之前，等待（探测 ）使用 TCP、HTTP、Unix 的其他服务可用。
+</code></pre><p>dockerize 的典型用例是，当有一个应用程序具有一个或多个配置文件，并且希望使用环境变量控制某些值时。</p>
+<h2 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h2><hr>
+<p>详情见</p>
+<pre><code>https://gitee.com/leoss/vbox/tree/master/centos7  这篇文章`测试dockerize`部分和代码
+</code></pre><h2 id="测试dockerize"><a href="#测试dockerize" class="headerlink" title="测试dockerize"></a>测试dockerize</h2><p>参考文档：</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000000728440">https://segmentfault.com/a/1190000000728440</a></p>
+<p>测试 dockerize 启动 nginx</p>
+<p>路径 source/docker-learn</p>
+<h3 id="用例1：日志文件内容输出到控制台"><a href="#用例1：日志文件内容输出到控制台" class="headerlink" title="用例1：日志文件内容输出到控制台"></a>用例1：日志文件内容输出到控制台</h3><blockquote>
+<p>docker启动</p>
+</blockquote>
+<pre><code>`docker logs 无输出`
 
-BOOTPROTO=static
-ONBOOT=yes
-IPADDR=192.168.1.190
-</code></pre><p>结束</p>
+docker run -itd -p 80:80 dockerize-test:latest
+
+将日志文件输出到控制台
+docker run -itd -p 80:80 dockerize-test:dev-output
+</code></pre><p>注：<br> 查看上一行命令是否执行成功</p>
+<pre><code>if [ $? -ne 0 ]; then
+    echo &quot;build unsuccessful&quot;
+    exit;
+fi
+</code></pre><h3 id="用例2-在启动时使用模板生成配置文件和容器环境变量"><a href="#用例2-在启动时使用模板生成配置文件和容器环境变量" class="headerlink" title="用例2: 在启动时使用模板生成配置文件和容器环境变量"></a>用例2: 在启动时使用模板生成配置文件和容器环境变量</h3><ol>
+<li>修改Dockerfile中最后一行为：</li>
+</ol>
+<pre><code>CMD dockerize -template /app/source/docker-learn/docker/nginx.tpl:/etc/nginx/nginx.conf -stdout /var/log/nginx/access.log -stderr /var/log/nginx/error.log nginx
+</code></pre><ol start="2">
+<li><p>nginx.tpl中有模板变量：</p>
+<pre><code># 指定当前启动环境作者
+# &#123;&#123; .Env.author &#125;&#125;
+</code></pre></li>
+<li><p>开始构建版本</p>
+<p> dev-tpl</p>
+</li>
+<li><p>创建容器</p>
+<pre><code>带上参数 -e &quot;author=wangjiang&quot;
+
+docker run -itd -p 80:80 --name nginx -e &quot;author=wangjiang&quot; dockerize-test:dev-tpl
+</code></pre></li>
+<li><p>进入到容器中 /etc/nginx/nginx.conf</p>
+</li>
+</ol>
+<p>显示  </p>
+<pre><code># 指定当前启动环境作者
+# wangjiang
+</code></pre><h3 id="用例3：等待其他依赖项"><a href="#用例3：等待其他依赖项" class="headerlink" title="用例3：等待其他依赖项"></a>用例3：等待其他依赖项</h3><p>使用 docker compose 等工具依赖其他链接容器中的服务是很常见的，但是通常依赖链接是不够的，虽然容器本身可能已经启动，但其中的服务可能还没有准备好。</p>
+<p>dockerize 能够在启动应用程序之前在指定协议（FILE、TCP、TCP4、TCP6、HTTP、HTTPS 和 Unix）上等待服务。</p>
+<p>[root@localhost ~]# dockerize -wait tcp://db:5432 -wait <a target="_blank" rel="noopener" href="http://web:80">http://web:80</a> -wait file:///tmp/generated-file</p>
+<p>可以使用 -timeout 参数（默认值 10 秒）指定等待服务可用的时间。如果超时，并且服务仍然不可用，则进程退出，状态代码为 1。</p>
+<p>[root@localhost ~]# dockerize -wait tcp://db:5432 -wait <a target="_blank" rel="noopener" href="http://web:80">http://web:80</a> -timeout 10s</p>
 
     </div>
 
@@ -390,8 +395,7 @@ IPADDR=192.168.1.190
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/centos/" rel="tag"># centos</a>
-              <a href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag"># 运维</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
           </div>
 
         
@@ -400,13 +404,10 @@ IPADDR=192.168.1.190
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/11/easycode/" rel="prev" title="easycode介绍及使用">
-      <i class="fa fa-chevron-left"></i> easycode介绍及使用
+    <a href="/2020/07/28/escape-analysis/" rel="prev" title="JAVA逃逸分析、栈上分配、标量替换、同步消除">
+      <i class="fa fa-chevron-left"></i> JAVA逃逸分析、栈上分配、标量替换、同步消除
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/06/23/microservice-pic-save/" rel="next" title="微服务图片存储问题解决">
-      微服务图片存储问题解决 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
