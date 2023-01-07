@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on WangJiang Blog</title>
+    <link>https://easycodeforu.com/categories/</link>
+    <description>Recent content in Categories on WangJiang Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://easycodeforu.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Framework</title>
+      <link>https://easycodeforu.com/categories/framework/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://easycodeforu.com/categories/framework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tech</title>
+      <link>https://easycodeforu.com/categories/tech/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://easycodeforu.com/categories/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tips</title>
+      <link>https://easycodeforu.com/categories/tips/</link>
+      <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://easycodeforu.com/categories/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Life</title>
+      <link>https://easycodeforu.com/categories/life/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://easycodeforu.com/categories/life/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

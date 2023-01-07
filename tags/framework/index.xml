@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>framework on WangJiang Blog</title>
+    <link>https://easycodeforu.com/tags/framework/</link>
+    <description>Recent content in framework on WangJiang Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://easycodeforu.com/tags/framework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>foundation-framework</title>
+      <link>https://easycodeforu.com/2023/01/07/foundation-params-parse-design/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://easycodeforu.com/2023/01/07/foundation-params-parse-design/</guid>
+      <description>查询 对查询参数进行解析，使用通用查询 TODO foundation优化，通过注解标识某个字段是唯一键，如果有唯一键，在插入时需要对唯一键进行检查</description>
+    </item>
+    
+  </channel>
+</rss>
