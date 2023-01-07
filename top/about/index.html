@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="Posts Archive" />
-    <meta property="og:title" content="Posts Archive" />
-    <meta property="twitter:title" content="Posts Archive" />
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
     
 
     
-    <meta name="description" content="Archive of historical posts.">
-    <meta property="og:description" content="Archive of historical posts." />
-    <meta property="twitter:description" content="Archive of historical posts." />
+    <meta name="description" content="王将，程序员, 写作爱好者，生活探险家 | 这里是 王将 的博客，与你一起发现更大的世界。">
+    <meta property="og:description" content="王将，程序员, 写作爱好者，生活探险家 | 这里是 王将 的博客，与你一起发现更大的世界。" />
+    <meta property="twitter:description" content="王将，程序员, 写作爱好者，生活探险家 | 这里是 王将 的博客，与你一起发现更大的世界。" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="王将, WangJiang, WangJiang, , 王将的网络日志, 王将的博客, WangJiang Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Posts Archive | 王将的博客 | WangJiang Blog</title>
+    <title>王将的博客 | WangJiang Blog</title>
 
-    <link rel="canonical" href="/archive/">
+    <link rel="canonical" href="/top/about/">
 
     
     
@@ -170,65 +170,49 @@
 
 
 
-
-<div class="container">
-    <div class="row">
-   	    <div class="
+<article>
+    <div class="container">
+        <div class="row">
+            
+            <div class="
             col-lg-8 col-lg-offset-1
             col-md-8 col-md-offset-1
             col-sm-12
             col-xs-12
-            post-container
-        ">
-            <div class="archive-list">
-                
-                
-                    
-                    
-                        
-                            
-                            <h1 class="title is-4 has-text-weight-normal">2023</h1>
-                        
-                    
-
-                    <ul>
-                    
-                        <li>
-                            <span>01/07</span> — 
-                            <a href="/2023/01/07/foundation-params-parse-design/">
-                                foundation-framework
-                            </a>
-                        </li>
-                    
-                    </ul>
+            post-container">
+            
+                 
+ <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 | Chinese </option>
+    <option value="1"> 英文 | English </option>
+</select>
 
                 
+                <div class="zh post-container">
+                    
+                    <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>need to write
+                </div>
+            
                 
-                
-                    
-                    
-                        
-                            
-                            <h1 class="title is-4 has-text-weight-normal">2019</h1>
-                        
-                    
+                <div class="en post-container">
+                    <h2 id="about-me">About Me</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>need to write</p>
 
-                    <ul>
-                    
-                        <li>
-                            <span>01/09</span> — 
-                            <a href="/post/readme/">
-                                Clean White Theme for Hugo
-                            </a>
-                        </li>
-                    
-                    </ul>
+                </div>
+            
+             
+            
 
-                
-                
+
+
+            
             </div>
-       	</div>
-        
+            
+            
 
 <div class="
     col-lg-3 col-lg-offset-0
@@ -345,11 +329,10 @@
     
 </div>
 
-	</div>
-</div>
+        </div>
+    </div>
+</article>
 
-
-<hr />
 
 
 
@@ -547,6 +530,57 @@
 </script>
 
 
+
+<script type="text/javascript">
+    
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
+
+    
+    function getLang() { return new URLSearchParams(document.location.search).get("lang") }
+
+    function setLang(newLang) {
+        var params = new URLSearchParams(document.location.search)
+        params.set("lang", newLang)
+        document.location.search = params.toString()  
+    }
+
+    
+    function _render() {
+        var lang = getLang()
+        
+        if (lang == "en") {
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $en.classList.add("active");
+            $zh.style.display = "none";
+            $zh.classList.remove("active");
+            
+        } else {
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $zh.classList.add("active");
+            $en.style.display = "none";
+            $en.classList.remove("active");
+        }
+        
+        generateCatalog(".catalog-body");
+    }
+
+    
+    function onLanChange(index) {
+        if (index == 0) {
+            lang = "zh"
+        } else {
+            lang = "en"
+        }
+        setLang(lang)
+    }
+
+    
+    _render();
+</script>
 
 
 
