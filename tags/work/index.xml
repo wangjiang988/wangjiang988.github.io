@@ -18,10 +18,10 @@
     
     <item>
       <title>foundation-framework</title>
-      <link>https://blog.easycodeforu.com/2023/01/07/foundation-params-parse-design/</link>
+      <link>https://blog.easycodeforu.com/2023/01/07/foundation-changelog/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/2023/01/07/foundation-params-parse-design/</guid>
+      <guid>https://blog.easycodeforu.com/2023/01/07/foundation-changelog/</guid>
       <description>主要模块 1.0.0 授权模块（oauth2.0） a. 支持oauth2.0，自定义资源数据库 mdc模块 traceId跟踪 flyway模块 数据库版本管理 k8</description>
     </item>
     
