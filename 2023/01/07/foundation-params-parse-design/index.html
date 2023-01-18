@@ -182,7 +182,7 @@
                         
                     </div>
                     <h1>foundation-framework</h1>
-                    <h2 class="subheading">foundation框架的设计和修改历史</h2>
+                    <h2 class="subheading">foundation框架的参数化设计</h2>
                     <span class="meta">
                         
                             Posted by 
@@ -216,38 +216,10 @@
                 post-container">
 
                 
-                <h2 id="主要模块">主要模块</h2>
-<h3 id="100">1.0.0</h3>
-<ol>
-<li>
-<p>授权模块（oauth2.0）<br>
-a. 支持oauth2.0，自定义资源数据库</p>
-</li>
-<li>
-<p>mdc模块<br>
-traceId跟踪</p>
-</li>
-<li>
-<p>flyway模块<br>
-数据库版本管理</p>
-</li>
-<li>
-<p>k8s-config模块<br>
-k8s统一配置（config-map）</p>
-</li>
-<li>
-<p>metrics模块<br>
-指标</p>
-</li>
-<li>
-<p>jwt模块<br>
-jwt 登录(非oauth2.0接入方式) 测试是foundation-test</p>
-</li>
-<li>
-<p>foundation-mybatis-domain-starter  （foundation-mybatis-starter弃用）<br>
-domain-starter mybatis 接入</p>
-</li>
-</ol>
+                <h2 id="查询">查询</h2>
+<p>对查询参数进行解析，使用通用查询</p>
+<h2 id="todo">TODO</h2>
+<p>foundation优化，通过注解标识某个字段是唯一键，如果有唯一键，在插入时需要对唯一键进行检查</p>
 
 
                 
@@ -297,15 +269,10 @@ domain-starter mybatis 接入</p>
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/readme/" data-toggle="tooltip" data-placement="top" title="Clean White Theme for Hugo">&larr;
+                        <a href="/2023/01/07/foundation-params-parse-design/" data-toggle="tooltip" data-placement="top" title="foundation-framework">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2023/01/07/foundation-params-parse-design/" data-toggle="tooltip" data-placement="top" title="foundation-framework">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
@@ -546,6 +513,41 @@ domain-starter mybatis 接入</p>
     }
 
     generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
+teCatalog(".catalog-body");
 
     
     $(".catalog-toggle").click((function (e) {
