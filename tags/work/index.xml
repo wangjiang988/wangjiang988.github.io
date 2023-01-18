@@ -16,5 +16,14 @@
       <description>查询 对查询参数进行解析，使用通用查询 TODO foundation优化，通过注解标识某个字段是唯一键，如果有唯一键，在插入时需要对唯一键进行检查</description>
     </item>
     
+    <item>
+      <title>foundation-framework</title>
+      <link>https://blog.easycodeforu.com/2023/01/07/foundation-params-parse-design/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.easycodeforu.com/2023/01/07/foundation-params-parse-design/</guid>
+      <description>主要模块 1.0.0 授权模块（oauth2.0） a. 支持oauth2.0，自定义资源数据库 mdc模块 traceId跟踪 flyway模块 数据库版本管理 k8</description>
+    </item>
+    
   </channel>
 </rss>
