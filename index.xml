@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>基础平台微服务设计和开发</title>
+      <link>https://blog.easycodeforu.com/2023/01/28/microservice-platform-design/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.easycodeforu.com/2023/01/28/microservice-platform-design/</guid>
+      <description>微服务功能说明 平台的基础服务，包括用户管理，系统管理，用户权限设置等 版本迭代 1.0版本主要功能 基于foundation 框架 1.0.1-sna</description>
+    </item>
+    
+    <item>
       <title>Clean White Theme for Hugo</title>
       <link>https://blog.easycodeforu.com/post/readme/</link>
       <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
