@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>workflow on WangJiang&#39;s Blog</title>
+    <link>https://blog.easycodeforu.com/tags/workflow/</link>
+    <description>Recent content in workflow on WangJiang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.easycodeforu.com/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微服务的开发流程</title>
+      <link>https://blog.easycodeforu.com/2023/02/12/service-gitflow/</link>
+      <pubDate>Sun, 12 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.easycodeforu.com/2023/02/12/service-gitflow/</guid>
+      <description>说明 微服务的开发流程 文档： 项目需求分析（主要实现什么内容，使用什么技术框架，核心逻辑使用什么技术方案等） 模块详细分析文档（核心逻辑的业务实现</description>
+    </item>
+    
+  </channel>
+</rss>

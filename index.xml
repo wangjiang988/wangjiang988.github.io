@@ -6,7 +6,16 @@
     <description>Recent content on WangJiang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.easycodeforu.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.easycodeforu.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>微服务的开发流程</title>
+      <link>https://blog.easycodeforu.com/2023/02/12/service-gitflow/</link>
+      <pubDate>Sun, 12 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.easycodeforu.com/2023/02/12/service-gitflow/</guid>
+      <description>说明 微服务的开发流程 文档： 项目需求分析（主要实现什么内容，使用什么技术框架，核心逻辑使用什么技术方案等） 模块详细分析文档（核心逻辑的业务实现</description>
+    </item>
+    
     <item>
       <title>foundation-framework</title>
       <link>https://blog.easycodeforu.com/2023/01/07/foundation-params-parse-design/</link>
@@ -31,7 +40,7 @@
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://blog.easycodeforu.com/2023/01/28/microservice-platform-design/</guid>
-      <description>微服务功能说明 平台的基础服务，包括用户管理，系统管理，用户权限设置等 版本迭代 1.0.0 基于foundation 框架 1.0.1-snapshot开发 集</description>
+      <description>微服务功能说明 平台的基础服务，包括用户管理，系统管理，用户权限设置等 版本迭代 系统管理 系统配置 数据字典 系统日志 登录日志 操作日志 基础配置 菜单管理</description>
     </item>
     
     <item>

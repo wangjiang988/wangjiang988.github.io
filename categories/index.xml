@@ -6,22 +6,22 @@
     <description>Recent content in Categories on WangJiang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.easycodeforu.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.easycodeforu.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microservice</title>
+      <link>https://blog.easycodeforu.com/categories/microservice/</link>
+      <pubDate>Sun, 12 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.easycodeforu.com/categories/microservice/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Framework</title>
       <link>https://blog.easycodeforu.com/categories/framework/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://blog.easycodeforu.com/categories/framework/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microservice</title>
-      <link>https://blog.easycodeforu.com/categories/microservice/</link>
-      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.easycodeforu.com/categories/microservice/</guid>
       <description></description>
     </item>
     
