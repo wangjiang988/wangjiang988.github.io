@@ -6,7 +6,16 @@
     <description>Recent content in Posts on WangJiang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.easycodeforu.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.easycodeforu.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>随便写写</title>
+      <link>https://blog.easycodeforu.com/2023/05/23/casual-notes/</link>
+      <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.easycodeforu.com/2023/05/23/casual-notes/</guid>
+      <description>2023-05-27 23:01:19 赚钱就是赚信息差和人际关系而已，不要沉迷于技术 一步一步积累资源，技术是资源，人脉是资源，钱是资源，人也是资源，人格魅力也是资源。提升自己</description>
+    </item>
+    
     <item>
       <title>微服务的开发流程</title>
       <link>https://blog.easycodeforu.com/2023/02/12/service-gitflow/</link>
@@ -41,15 +50,6 @@
       
       <guid>https://blog.easycodeforu.com/2023/01/28/microservice-platform-design/</guid>
       <description>微服务功能说明 平台的基础服务，包括用户管理，系统管理，用户权限设置等 版本迭代 系统管理 系统配置 数据字典 系统日志 登录日志 操作日志 基础配置 菜单管理</description>
-    </item>
-    
-    <item>
-      <title>随便写写</title>
-      <link>https://blog.easycodeforu.com/2023/05/23/casual-notes/</link>
-      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.easycodeforu.com/2023/05/23/casual-notes/</guid>
-      <description>2023-05-27 23:01:19 赚钱就是赚信息差和人际关系而已，不要沉迷于技术 一步一步积累资源，技术是资源，人脉是资源，钱是资源，人也是资源，人格魅力也是资源。提升自己</description>
     </item>
     
     <item>
