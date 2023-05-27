@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="感悟" />
+    <meta property="og:title" content="感悟" />
+    <meta property="twitter:title" content="感悟" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="王将, WangJiang, WangJiang, , 王将的网络日志, 王将的博客, WangJiang&#39;s Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Searches | 王将的博客 | WangJiang&#39;s Blog</title>
+    <title>感悟 | 王将的博客 | WangJiang&#39;s Blog</title>
 
-    <link rel="canonical" href="/search/">
+    <link rel="canonical" href="/tags/%E6%84%9F%E6%82%9F/">
 
     
     
@@ -177,6 +177,7 @@
 
 
 
+  
 <div class="container">
     <div class="row">
         
@@ -189,113 +190,38 @@
             post-container
         ">
             
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
 
-<div id="search-searchbar"></div>
- <div class="post-list" id="search-hits">
- </div>
+<div class="post-preview">
+    <a href="https://blog.easycodeforu.com/2023/05/23/casual-notes/">
+        <h2 class="post-title">
+            随便写写
+        </h2>
+	
+        <h3 class="post-subtitle">
+            有感而发而已
+        </h3>
+	
+        <div class="post-content-preview">
+	
+            随便写写，想到哪里写到哪里...
+        
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by 王将 on Saturday, May 27, 2023
+        
+        
+    
+    </p>
 
-<script>
-const search = instantsearch({
-  appId: '',
-  indexName: '',
-  apiKey: ''
-});
-
-const hitTemplate = function(hit) {
-
-
-  let date = '';
-  if (hit.date) {
-    date = moment.unix(hit.date).format('MMM D, YYYY');
-  }
-  let url = `${hit.url}#${hit.anchor}`;
-  const title = hit._highlightResult.title.value;
-
-  let breadcrumbs = '';
-  if (hit._highlightResult.headings) {
-    breadcrumbs = hit._highlightResult.headings.map(match => {
-      return `<span class="post-breadcrumb">${match.value}</span>`
-    }).join(' > ')
-  }
-
-  let content = "" ; 
-  if (hit._highlightResult.content){
-      content = hit._highlightResult.content.value;
-  }
-  else{
-      content = hit.summary;
-  }
+</div>
+<hr>
 
 
-  return `
-    <div class="post-item">
-      <span class="post-meta">${date}</span>
-      <h2><a class="post-link" href="${url}">${title}</a></h2>
-      <a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>
-      <div class="post-snippet">${content}</div>
-    </div>
-  `;
-}
+            
 
 
-search.addWidget(
-  instantsearch.widgets.searchBox({
-    container: '#search-searchbar',
-    placeholder: 'Search into posts...',
-    poweredBy: true // This is required if you're on the free Community plan
-  })
-);
-
-search.addWidget(
-  instantsearch.widgets.hits({
-    container: '#search-hits',
-    templates: {
-      item: hitTemplate
-    }
-  })
-);
-
-search.start();
-</script>
-
-<style>
-.ais-search-box {
-  max-width: 100%;
-  margin-bottom: 15px;
-}
-.post-item {
-  margin-bottom: 30px;
-}
-.post-link .ais-Highlight {
-  color: #111;
-  font-style: normal;
-  text-decoration: underline;
-}
-.post-breadcrumbs {
-  color: #424242;
-  display: block;
-}
-.post-breadcrumb {
-  font-size: 18px;
-  color: #424242;
-}
-.post-breadcrumb .ais-Highlight {
-  font-weight: bold;
-  font-style: normal;
-}
-.post-snippet .ais-Highlight {
-  color: #2a7ae2;
-  font-style: normal;
-  font-weight: bold;
-}
-.post-snippet img {
-  display: none;
-}
-</style>
 
        	</div>
         
@@ -439,6 +365,8 @@ search.start();
 
 
 
+
+
 <footer>
     <div class="container">
         <div class="row">
@@ -494,7 +422,7 @@ search.start();
             
            
                    <li>
-                       <a href='/search/index.xml' rel="alternate" type="application/rss+xml" title="WangJiang&#39;s Blog" >
+                       <a href='/tags/%E6%84%9F%E6%82%9F/index.xml' rel="alternate" type="application/rss+xml" title="WangJiang&#39;s Blog" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

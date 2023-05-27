@@ -8,29 +8,20 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 27 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.easycodeforu.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>foundation</title>
-      <link>https://blog.easycodeforu.com/tags/foundation/</link>
+      <title>感悟</title>
+      <link>https://blog.easycodeforu.com/tags/%E6%84%9F%E6%82%9F/</link>
       <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/tags/foundation/</guid>
+      <guid>https://blog.easycodeforu.com/tags/%E6%84%9F%E6%82%9F/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>framework</title>
-      <link>https://blog.easycodeforu.com/tags/framework/</link>
+      <title>随笔</title>
+      <link>https://blog.easycodeforu.com/tags/%E9%9A%8F%E7%AC%94/</link>
       <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/tags/framework/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>work</title>
-      <link>https://blog.easycodeforu.com/tags/work/</link>
-      <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.easycodeforu.com/tags/work/</guid>
+      <guid>https://blog.easycodeforu.com/tags/%E9%9A%8F%E7%AC%94/</guid>
       <description></description>
     </item>
     
@@ -62,11 +53,38 @@
     </item>
     
     <item>
+      <title>foundation</title>
+      <link>https://blog.easycodeforu.com/tags/foundation/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.easycodeforu.com/tags/foundation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>framework</title>
+      <link>https://blog.easycodeforu.com/tags/framework/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.easycodeforu.com/tags/framework/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>platform</title>
       <link>https://blog.easycodeforu.com/tags/platform/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
       
       <guid>https://blog.easycodeforu.com/tags/platform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>work</title>
+      <link>https://blog.easycodeforu.com/tags/work/</link>
+      <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.easycodeforu.com/tags/work/</guid>
       <description></description>
     </item>
     
