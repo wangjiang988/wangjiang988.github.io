@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microservice on WangJiang&#39;s Blog</title>
-    <link>https://blog.easycodeforu.com/categories/microservice/</link>
+    <link>https://easycodeforu.com/categories/microservice/</link>
     <description>Recent content in Microservice on WangJiang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.easycodeforu.com/categories/microservice/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://easycodeforu.com/categories/microservice/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>微服务的开发流程</title>
-      <link>https://blog.easycodeforu.com/2023/02/12/service-gitflow/</link>
+      <link>https://easycodeforu.com/2023/02/12/service-gitflow/</link>
       <pubDate>Sun, 12 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/2023/02/12/service-gitflow/</guid>
+      <guid>https://easycodeforu.com/2023/02/12/service-gitflow/</guid>
       <description>说明 微服务的开发流程 文档： 项目需求分析（主要实现什么内容，使用什么技术框架，核心逻辑使用什么技术方案等） 模块详细分析文档（核心逻辑的业务实现</description>
     </item>
     
     <item>
       <title>基础平台微服务设计和开发</title>
-      <link>https://blog.easycodeforu.com/2023/01/28/microservice-platform-design/</link>
+      <link>https://easycodeforu.com/2023/01/28/microservice-platform-design/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/2023/01/28/microservice-platform-design/</guid>
+      <guid>https://easycodeforu.com/2023/01/28/microservice-platform-design/</guid>
       <description>微服务功能说明 平台的基础服务，包括用户管理，系统管理，用户权限设置等 版本迭代 系统管理 系统配置 数据字典 系统日志 登录日志 操作日志 基础配置 菜单管理</description>
     </item>
     

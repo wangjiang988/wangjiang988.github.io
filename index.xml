@@ -2,98 +2,98 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WangJiang&#39;s Blog</title>
-    <link>https://blog.easycodeforu.com/</link>
+    <link>https://easycodeforu.com/</link>
     <description>Recent content on WangJiang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.easycodeforu.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://easycodeforu.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>随便写写</title>
-      <link>https://blog.easycodeforu.com/2023/05/23/casual-notes/</link>
+      <link>https://easycodeforu.com/2023/05/23/casual-notes/</link>
       <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/2023/05/23/casual-notes/</guid>
+      <guid>https://easycodeforu.com/2023/05/23/casual-notes/</guid>
       <description>2023-05-27 23:01:19 赚钱就是赚信息差和人际关系而已，不要沉迷于技术 一步一步积累资源，技术是资源，人脉是资源，钱是资源，人也是资源，人格魅力也是资源。提升自己</description>
     </item>
     
     <item>
       <title>微服务的开发流程</title>
-      <link>https://blog.easycodeforu.com/2023/02/12/service-gitflow/</link>
+      <link>https://easycodeforu.com/2023/02/12/service-gitflow/</link>
       <pubDate>Sun, 12 Feb 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/2023/02/12/service-gitflow/</guid>
+      <guid>https://easycodeforu.com/2023/02/12/service-gitflow/</guid>
       <description>说明 微服务的开发流程 文档： 项目需求分析（主要实现什么内容，使用什么技术框架，核心逻辑使用什么技术方案等） 模块详细分析文档（核心逻辑的业务实现</description>
     </item>
     
     <item>
       <title>foundation-framework</title>
-      <link>https://blog.easycodeforu.com/2023/01/07/foundation-params-parse-design/</link>
+      <link>https://easycodeforu.com/2023/01/07/foundation-params-parse-design/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/2023/01/07/foundation-params-parse-design/</guid>
+      <guid>https://easycodeforu.com/2023/01/07/foundation-params-parse-design/</guid>
       <description>查询 对查询参数进行解析，使用通用查询 TODO foundation优化，通过注解标识某个字段是唯一键，如果有唯一键，在插入时需要对唯一键进行检查</description>
     </item>
     
     <item>
       <title>foundation-framework的模块设计，版本记录及修改历史</title>
-      <link>https://blog.easycodeforu.com/2023/01/07/foundation-changelog/</link>
+      <link>https://easycodeforu.com/2023/01/07/foundation-changelog/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/2023/01/07/foundation-changelog/</guid>
+      <guid>https://easycodeforu.com/2023/01/07/foundation-changelog/</guid>
       <description>主要模块 1.0.0 授权模块（oauth2.0） a. 支持oauth2.0，自定义资源数据库 mdc模块 traceId跟踪 flyway模块 数据库版本管理 k8</description>
     </item>
     
     <item>
       <title>基础平台微服务设计和开发</title>
-      <link>https://blog.easycodeforu.com/2023/01/28/microservice-platform-design/</link>
+      <link>https://easycodeforu.com/2023/01/28/microservice-platform-design/</link>
       <pubDate>Sat, 07 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/2023/01/28/microservice-platform-design/</guid>
+      <guid>https://easycodeforu.com/2023/01/28/microservice-platform-design/</guid>
       <description>微服务功能说明 平台的基础服务，包括用户管理，系统管理，用户权限设置等 版本迭代 系统管理 系统配置 数据字典 系统日志 登录日志 操作日志 基础配置 菜单管理</description>
     </item>
     
     <item>
       <title>Clean White Theme for Hugo</title>
-      <link>https://blog.easycodeforu.com/post/readme/</link>
+      <link>https://easycodeforu.com/post/readme/</link>
       <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/post/readme/</guid>
+      <guid>https://easycodeforu.com/post/readme/</guid>
       <description>Clean White Theme for Hugo CleanWhite is a clean, elegant, but fully functional blog theme for Hugo. Here is a live demo site using this theme. It is based on huxblog Jekyll Theme and Clean Blog Jekyll Theme. These two upstream projects have done awesome jobs to create a blog theme, what I&amp;rsquo;m doing here is porting it to Hugo, of which I like the simplicity and the much faster</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://blog.easycodeforu.com/about/</link>
+      <link>https://easycodeforu.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/about/</guid>
+      <guid>https://easycodeforu.com/about/</guid>
       <description>About Me need to write</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://blog.easycodeforu.com/notes/</link>
+      <link>https://easycodeforu.com/notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/notes/</guid>
+      <guid>https://easycodeforu.com/notes/</guid>
       <description>Go 语言学习笔记 Envoy 学习笔记</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://blog.easycodeforu.com/search/placeholder/</link>
+      <link>https://easycodeforu.com/search/placeholder/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/search/placeholder/</guid>
+      <guid>https://easycodeforu.com/search/placeholder/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Posts Archive</title>
-      <link>https://blog.easycodeforu.com/archive/</link>
+      <link>https://easycodeforu.com/archive/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.easycodeforu.com/archive/</guid>
+      <guid>https://easycodeforu.com/archive/</guid>
       <description></description>
     </item>
     
